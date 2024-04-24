@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title Modifica Portata
+  body
+    h1 Modifica Portata
+    form(action="/modificaPortata" method="post")
+      label(for="id") id Portata:
+      input(type="text" id="id" name="id" required)
+      br
+      label(for="nome") Nuovo Nome Portata:
+      input(type="text" id="nome" name="nome" required)
+      br
+      button(type="submit") Modifica

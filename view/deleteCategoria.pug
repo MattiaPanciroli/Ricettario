@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    title Elimina Categoria
+  body
+    h1 Inserisci l'id della categoria che vuoi eliminare
+    form(action="/eliminaCategoria" method="post")
+      label(for="id") id:
+      input(type="text" id="id" name="id" required)
+      button(type="submit") Invia

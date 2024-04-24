@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    title Elimina Paese
+  body
+    h1 Inserisci l'id del Paese che vuoi eliminare
+    form(action="/eliminaPaese" method="post")
+      label(for="id") id:
+      input(type="text" id="id" name="id" required)
+      button(type="submit") Invia

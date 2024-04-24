@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    title Elimina Portata
+  body
+    h1 Inserisci l'id della portata che vuoi eliminare
+    form(action="/eliminaPortata" method="post")
+      label(for="id") id:
+      input(type="text" id="id" name="id" required)
+      button(type="submit") Invia

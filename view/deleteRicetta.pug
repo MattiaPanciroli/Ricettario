@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    title Elimina Ricetta
+  body
+    h1 Inserisci l'id della ricetta che vuoi eliminare
+    form(action="/eliminaRicetta" method="post")
+      label(for="id") id:
+      input(type="text" id="id" name="id" required)
+      button(type="submit") Invia
