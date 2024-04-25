@@ -39,9 +39,61 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
+// Configura il motore di template Pug
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
 
 //Sezione Route
+
+//GET
+
+app.get('/addRicetta', (req,res)=>{
+  res.render('addRicetta');
+});
+app.get('/addCategoria', (req,res)=>{
+  res.render('addCategoria');
+});
+app.get('/addCottura', (req,res)=>{
+  res.render('addCottura');
+});
+app.get('/addPaese', (req,res)=>{
+  res.render('addPaese');
+});
+app.get('/addPortata', (req,res)=>{
+  res.render('addPortata');
+});
+
+app.get('/deleteRicetta', (req,res)=>{
+  res.render('deleteRicetta');
+});
+app.get('/deleteCategoria', (req,res)=>{
+  res.render('deleteCategoria');
+});
+app.get('/deleteCottura', (req,res)=>{
+  res.render('deleteCottura');
+});
+app.get('/deletePaese', (req,res)=>{
+  res.render('deletePaese');
+});
+app.get('/deletePortata', (req,res)=>{
+  res.render('deletePortata');
+});
+
+app.get('/editRicetta', (req,res)=>{
+  res.render('editRicetta');
+});
+app.get('/editCategoria', (req,res)=>{
+  res.render('editCategoria');
+});
+app.get('/editCottura', (req,res)=>{
+  res.render('editCottura');
+});
+app.get('/editPaese', (req,res)=>{
+  res.render('editPaese');
+});
+app.get('/editPortata', (req,res)=>{
+  res.render('editPortata');
+});
 
 //POST
 
@@ -166,13 +218,16 @@ app.post('/portate', (req,res) => {
 
 //DELETE
 
-app.delete('/eliminaRicetta', (req,res) => {
+app.post('/eliminaRicetta', (req,res) => {
     const id = req.body.id;
     let config = {
         method: 'delete',
         maxBodyLength: Infinity,
         url: 'https://hofman.alwaysdata.net/ricette/'+ id +'',
-        headers: { }
+        headers: { },
+        data:{
+          id
+        }
       };
       
       axios.request(config)
@@ -185,13 +240,16 @@ app.delete('/eliminaRicetta', (req,res) => {
   
 });
 
-app.delete('/eliminaCategoria', (req,res) => {
+app.post('/eliminaCategoria', (req,res) => {
     const id = req.body.id;
     let config = {
         method: 'delete',
         maxBodyLength: Infinity,
         url: 'https://hofman.alwaysdata.net/categorie/'+ id +'',
-        headers: { }
+        headers: { },
+        data:{
+          id
+        }
       };
       
       axios.request(config)
@@ -204,13 +262,16 @@ app.delete('/eliminaCategoria', (req,res) => {
   
 });
 
-app.delete('/eliminaCottura', (req,res) => {
+app.post('/eliminaCottura', (req,res) => {
     const id = req.body.id;
     let config = {
         method: 'delete',
         maxBodyLength: Infinity,
         url: 'https://hofman.alwaysdata.net/cotture/'+ id +'',
-        headers: { }
+        headers: { },
+        data:{
+          id
+        }
       };
       
       axios.request(config)
@@ -223,13 +284,16 @@ app.delete('/eliminaCottura', (req,res) => {
   
 });
 
-app.delete('/eliminaPaese', (req,res) => {
+app.post('/eliminaPaese', (req,res) => {
     const id = req.body.id;
     let config = {
         method: 'delete',
         maxBodyLength: Infinity,
         url: 'https://hofman.alwaysdata.net/paesi/'+ id +'',
-        headers: { }
+        headers: { },
+        data:{
+          id
+        }
       };
       
       axios.request(config)
@@ -242,13 +306,16 @@ app.delete('/eliminaPaese', (req,res) => {
   
 });
 
-app.delete('/eliminaPortata', (req,res) => {
+app.post('/eliminaPortata', (req,res) => {
     const id = req.body.id;
     let config = {
         method: 'delete',
         maxBodyLength: Infinity,
         url: 'https://hofman.alwaysdata.net/portate/'+ id +'',
-        headers: { }
+        headers: { },
+        data:{
+          id
+        }
       };
       
       axios.request(config)
@@ -262,7 +329,7 @@ app.delete('/eliminaPortata', (req,res) => {
 });
 
 //PATCH
-app.patch('/modificaRicetta', async (req, res) => {
+app.post('/modificaRicetta', async (req, res) => {
     const id = req.body.id;
     const titolo = req.body.titolo;
 
@@ -286,7 +353,7 @@ app.patch('/modificaRicetta', async (req, res) => {
     
 });
 
-app.patch('/modificaCategoria', async (req, res) => {
+app.post('/modificaCategoria', async (req, res) => {
     const id = req.body.id;
     const nome = req.body.nome;
 
@@ -309,7 +376,7 @@ app.patch('/modificaCategoria', async (req, res) => {
       });
 });
 
-app.patch('/modificaCottura', async (req, res) => {
+app.post('/modificaCottura', async (req, res) => {
     const id = req.body.id;
     const nome = req.body.nome;
 
@@ -332,7 +399,7 @@ app.patch('/modificaCottura', async (req, res) => {
       });
 });
 
-app.patch('/modificaPaese', async (req, res) => {
+app.post('/modificaPaese', async (req, res) => {
     const id = req.body.id;
     const nome = req.body.nome;
 
@@ -355,7 +422,7 @@ app.patch('/modificaPaese', async (req, res) => {
       });
 });
 
-app.patch('/modificaPortata', async (req, res) => {
+app.post('/modificaPortata', async (req, res) => {
     const id = req.body.id;
     const nome = req.body.nome;
 
