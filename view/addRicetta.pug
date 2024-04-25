@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title Nuova Ricetta
+  body
+    h1 Nuova Ricetta
+    form(action="/ricette" method="post")
+      label(for="titolo") Titolo:
+      input(type="text" id="titolo" name="titolo" required)
+      br
+      label(for="tempo_preparazione") Tempo di Preparazione:
+      input(type="text" id="tempo_preparazione" name="tempo_preparazione" required)
+      br
+      label(for="porzioni") Porzioni:
+      input(type="text" id="porzioni" name="porzioni" required)
+      br
+      label(for="testo") Testo:
+      textarea(id="testo" name="testo" rows="4" required)
+      br
+      label(for="livello") Livello:
+      input(type="text" id="livello" name="livello" required)
+      br
+      button(type="submit") Crea Ricetta

@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    title Nuova Cottura
+  body
+    h1 Nuova Cottura
+    form(action="/cotture" method="post")
+      label(for="nome") Nome Cottura:
+      input(type="text" id="nome" name="nome" required)
+      br
+      button(type="submit") Aggiungi Cottura

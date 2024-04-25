@@ -46,18 +46,25 @@ app.use(bodyParser.json());
 //POST
 
 app.post('/ricette', (req, res) => {
+  const { titolo, tempo_preparazione, porzioni, testo, livello } = req.body;
 
     let config = {
         method: 'post',
         maxBodyLength: Infinity,
         url: 'https://hofman.alwaysdata.net/ricette',
-        headers: { }
+        headers: { },
+        data:{
+          titolo, 
+          tempo_preparazione, 
+          porzioni, 
+          testo, 
+          livello
+        }
     };
         
     axios.request(config)
     .then((response) => {
         console.log(JSON.stringify(response.data));
-        //res.render('ricette', response.data);
     })
     .catch((error) => {
         console.log(error);
@@ -66,17 +73,21 @@ app.post('/ricette', (req, res) => {
 });
 
 app.post('/categorie', (req,res) => {
+  const {nome} =req.body;
+
     let config = {
         method: 'post',
         maxBodyLength: Infinity,
         url: 'https://hofman.alwaysdata.net/categorie',
-        headers: {}
+        headers: {},
+        data:{
+          nome
+        }
     };
 
     axios.request(config)
         .then((response) => {
             console.log(JSON.stringify(response.data));
-            //res.render('categorie', response.data);
         })
         .catch((error) => {
             console.log(error);
@@ -85,17 +96,21 @@ app.post('/categorie', (req,res) => {
 });
 
 app.post('/cotture', (req,res) => {
+  const {nome} =req.body;
+
     let config = {
         method: 'post',
         maxBodyLength: Infinity,
         url: 'https://hofman.alwaysdata.net/cotture',
-        headers: { }
+        headers: { },
+        data:{
+          nome
+        }
       };
       
       axios.request(config)
       .then((response) => {
         console.log(JSON.stringify(response.data));
-        //res.render('cotture', response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -104,17 +119,21 @@ app.post('/cotture', (req,res) => {
 });
 
 app.post('/paesi', (req,res) => {
+  const {nome} =req.body;
+
     let config = {
         method: 'post',
         maxBodyLength: Infinity,
         url: 'https://hofman.alwaysdata.net/paesi',
-        headers: { }
+        headers: { },
+        data:{
+          nome
+        }
       };
       
       axios.request(config)
       .then((response) => {
         console.log(JSON.stringify(response.data));
-        //res.render('paesi', response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -123,17 +142,21 @@ app.post('/paesi', (req,res) => {
 });
 
 app.post('/portate', (req,res) => {
+  const {nome} =req.body;
+
     let config = {
         method: 'post',
         maxBodyLength: Infinity,
         url: 'https://hofman.alwaysdata.net/portate',
-        headers: { }
+        headers: { },
+        data:{
+          nome
+        }
       };
       
       axios.request(config)
       .then((response) => {
         console.log(JSON.stringify(response.data));
-        //res.render('portate', response.data);
       })
       .catch((error) => {
         console.log(error);

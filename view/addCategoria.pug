@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    title Nuova Categoria
+  body
+    h1 Nuova Categoria
+    form(action="/categorie" method="post")
+      label(for="nome") Nome Categoria:
+      input(type="text" id="nome" name="nome" required)
+      br
+      button(type="submit") Aggiungi Categoria

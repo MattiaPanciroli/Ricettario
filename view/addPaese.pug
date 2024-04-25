@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    title Nuovo Paese
+  body
+    h1 Nuovo Paese
+    form(action="/paesi" method="post")
+      label(for="nome") Nome Paese:
+      input(type="text" id="nome" name="nome" required)
+      br
+      button(type="submit") Aggiungi Paese

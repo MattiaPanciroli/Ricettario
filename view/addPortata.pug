@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    title Nuova Portata
+  body
+    h1 Nuova Portata
+    form(action="/portate" method="post")
+      label(for="nome") Nome Portata:
+      input(type="text" id="nome" name="nome" required)
+      br
+      button(type="submit") Aggiungi Portata
