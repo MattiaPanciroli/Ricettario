@@ -23,6 +23,7 @@ app.use(morgan('short', { stream: accessLogStream }));
 //Middleweare sicurezza helmet
 app.use(helmet());
 
+//setta la rotta per tutte le risorse statiche
 app.use(cors());
 app.use("/public", express.static(path.join(__dirname, "public")));
 
