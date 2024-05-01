@@ -2,6 +2,8 @@ doctype html
 html
   head
     title Nuova Ricetta
+    script(src='/public/js/belSelect.js' defer='')
+    link(rel='stylesheet' href='/public/css/cover.css')
   body
     h1 Nuova Ricetta
     form(action="/ricette" method="post")
@@ -19,5 +21,41 @@ html
       br
       label(for="livello") Livello:
       input(type="text" id="livello" name="livello" required)
+      br
+      div(id="ingredienti-selected" style="margin: 5px;")
+      label(for="ingredienti") Ingredienti:
+      select(id="ingredienti" name="ingredienti" class="belSelect")
+        option(value='' selected='' hidden='') Seleziona un ingrediente
+        each dato in ingredienti
+          option(value=dato.id) #{dato.nome}
+      //da fare inserimento multiplo
+      br
+      div(id="paesi-selected" style="margin: 5px;")
+      label(for="paesi") Paesi:
+      select(id="paesi" name="paesi" class="belSelect")
+        option(value='' selected='' hidden='') Seleziona un paese
+        each dato in paesi
+          option(value=dato.id) #{dato.nome}
+      br
+      div(id="portate-selected" style="margin: 5px;")
+      label(for="portate") Portate:
+      select(id="portate" name="portate" class="belSelect")
+        option(value='' selected='' hidden='') Seleziona una portata
+        each dato in portate
+          option(value=dato.id) #{dato.nome}
+      br
+      div(id="categorie-selected" style="margin: 5px;")
+      label(for="categorie") Categorie:
+      select(id="categorie" name="categorie" class="belSelect")
+        option(value='' selected='' hidden='') Seleziona una categoria
+        each dato in categorie
+          option(value=dato.id) #{dato.nome}
+      br
+      div(id="cotture-selected" style="margin: 5px;")
+      label(for="cotture") Cotture:
+      select(id="cotture" name="cotture" class="belSelect")
+        option(value='' selected='' hidden='') Seleziona una cottura
+        each dato in cotture
+          option(value=dato.id) #{dato.nome}
       br
       button(type="submit") Crea Ricetta

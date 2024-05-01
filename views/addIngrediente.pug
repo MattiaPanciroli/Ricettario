@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title Nuovo Ingrediente
+  body
+    h1 Nuovo Ingrediente
+    form(action="/ingredienti" method="post")
+      label(for="nome") Nome Ingrediente:
+      input(type="text" id="nome" name="nome" required)
+      label(for="descrizione") Descrizione Ingrediente:
+      textarea(name="descrizione" id="descrizione", cols="30", rows="10" required) 
+      br
+      button(type="submit") Aggiungi Ingrediente
